@@ -1,0 +1,11 @@
+Presentación del equipo LosBuñuelosJs:
+
+Este es un equipo polifacético, conformado por jóvenes de diferentes lugares de Colombia, 
+unidos por un mismo fin, aprender a programar.
+
+El equipo está conformado por: 
+
+1. Andrés Farid Díaz Gómez.
+Rol: Scrum Master. 
+Soy Licenciado en Informática y Medios Audiovisuales, tengo 22 años. Vivo en la ciudad de Cereté del 
+departamento de Córdoba, me gusta mucho la programación, el diseño y la música. 
