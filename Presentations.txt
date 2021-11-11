@@ -8,3 +8,7 @@ El equipo está conformado por:
 Rol: Scrum Master. 
 Soy Licenciado en Informática y Medios Audiovisuales, tengo 22 años. Vivo en la ciudad de Cereté del departamento de Córdoba, 
 me gusta mucho la programación, el diseño y la música. 
+
+2. Juan David Cifuentes Florez
+Rol: Desarrollador
+Tecnólogo en electrónica, tengo 29 años, soy de Tuluá - Valle del Cauca, me gusta mucho la programación y lo que se puede hacer integrandola a la electrónica. como pasatiempo tengo la lectura, escuchar música, los videojuegos y pasear.
