@@ -10,7 +10,7 @@ Soy Licenciado en Informática y Medios Audiovisuales, tengo 22 años. Vivo en l
 me gusta mucho la programación, el diseño y la música. 
 
 2. Juan David Cifuentes Florez
-Rol: Desarrollador
+Rol: Product Owner
 Tecnólogo en electrónica, tengo 29 años, soy de Tuluá - Valle del Cauca, me gusta mucho la programación y lo que se puede hacer integrandola a la electrónica. como pasatiempo tengo la lectura, escuchar música, los videojuegos y pasear.
 
 3. Joan Samir Rosales Cadena
@@ -22,6 +22,6 @@ Rol: Analista
 Tengo 19 años, soy del departamento de Nariño, actualmente estoy cursando el ciclo 4 del curso Mision Tic 2022, con la expectativa de aprender mucho e implementarlo en mi diario vivir,
  y de esta manera mas adelante tener una oportunidad de trabajo. En mis tiempos libres me gusta escuchar musica, viajar y compartir con mis familiares y amigos
 
- 5. Luis Armando Cruz Contreras
+5. Luis Armando Cruz Contreras
  Rol: Administrador de BD
  Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.
