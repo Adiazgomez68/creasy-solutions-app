@@ -11,11 +11,13 @@ me gusta mucho la programación, el diseño y la música.
 
 2. Juan David Cifuentes Florez
 Rol: Product Owner
-Tecnólogo en electrónica, tengo 29 años, soy de Tuluá - Valle del Cauca, me gusta mucho la programación y lo que se puede hacer integrandola a la electrónica. como pasatiempo tengo la lectura, escuchar música, los videojuegos y pasear.
+Tecnólogo en electrónica, tengo 29 años, soy de Tuluá - Valle del Cauca, me gusta mucho la programación y lo que se puede hacer integrandola a la electrónica.
+como pasatiempo tengo la lectura, escuchar música, los videojuegos y pasear.
 
 3. Joan Samir Rosales Cadena
 Rol: Desarrollador
-Soy Ingeniero Electronico de la ciudad de Cali, actualmente trabajo en una empresa de telecomunicaciones de mi ciudad y estoy en el programa de Mintic, para aprender y reforzar mucho mas mis conocimientos acerca del desarrollo de software.
+Soy Ingeniero Electronico de la ciudad de Cali, actualmente trabajo en una empresa de telecomunicaciones de mi ciudad y estoy en el programa de Mintic, 
+para aprender y reforzar mucho mas mis conocimientos acerca del desarrollo de software.
 
 4. Karent Liliana Manchabajoy: 
 Rol: Analista 
