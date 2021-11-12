@@ -21,3 +21,7 @@ Soy Ingeniero Electronico de la ciudad de Cali, actualmente trabajo en una empre
 Rol: Analista 
 Tengo 19 años, soy del departamento de Nariño, actualmente estoy cursando el ciclo 4 del curso Mision Tic 2022, con la expectativa de aprender mucho e implementarlo en mi diario vivir,
  y de esta manera mas adelante tener una oportunidad de trabajo. En mis tiempos libres me gusta escuchar musica, viajar y compartir con mis familiares y amigos
+
+ 5. Luis Armando Cruz Contreras
+ Rol: Analista
+ Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.
