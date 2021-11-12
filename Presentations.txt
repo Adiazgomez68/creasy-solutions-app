@@ -23,5 +23,5 @@ Tengo 19 años, soy del departamento de Nariño, actualmente estoy cursando el c
  y de esta manera mas adelante tener una oportunidad de trabajo. En mis tiempos libres me gusta escuchar musica, viajar y compartir con mis familiares y amigos
 
  5. Luis Armando Cruz Contreras
- Rol: Analista
+ Rol: Administrador de BD
  Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.
