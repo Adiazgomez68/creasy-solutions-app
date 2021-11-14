@@ -27,3 +27,7 @@ Tengo 19 años, soy del departamento de Nariño, actualmente estoy cursando el c
 5. Luis Armando Cruz Contreras
  Rol: Administrador de BD
  Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.
+
+6. Fabian Stevens Varon
+ Rol: Desarrollador
+ Nacido en Neiva Huila, Ingeniero de software de profesión, músico (percusionista) de vocación. Me gustan los idiomas, aprender de todo un poco y siempre buscar la forma de ayudar a los demás.
