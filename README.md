@@ -24,12 +24,12 @@ para aprender y reforzar mucho mas mis conocimientos acerca del desarrollo de so
     - Tengo 19 años, soy del departamento de Nariño, actualmente estoy cursando el ciclo 4 del curso Mision Tic 2022, con la expectativa de aprender mucho e implementarlo en mi diario vivir, y de esta manera mas adelante tener una oportunidad de trabajo. En mis tiempos libres me gusta escuchar musica, viajar y compartir con mis familiares y amigos. <br><br>
 
 5. **Luis Armando Cruz Contreras:**
- - <img src="https://img.shields.io/badge/Rol-Administrador%20de%20DB-yellow">
- - Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.<br><br>
+    - <img src="https://img.shields.io/badge/Rol-Administrador%20de%20DB-yellow">
+    - Ingeniero en Mecatronica, vivo en Bogotá, disfruto mucho la programación, libros y cine. Actualmente trabajo en el sector financiero como analista de datos.<br><br>
 
 6. **Fabian Stevens Varon:**
- - <img src="https://img.shields.io/badge/Rol-Desarrollador-blueviolet">
- - Nacido en Neiva Huila, Ingeniero de software de profesión, músico (percusionista) de vocación. Me gustan los idiomas, aprender de todo un poco y siempre buscar la forma de ayudar a los demás.<br><br>
+    - <img src="https://img.shields.io/badge/Rol-Desarrollador-blueviolet">
+    - Nacido en Neiva Huila, Ingeniero de software de profesión, músico (percusionista) de vocación. Me gustan los idiomas, aprender de todo un poco y siempre buscar la forma de ayudar a los demás.<br><br>
 
 
 >El proyecto que se va a realizar en este ciclo es un sistema de gestión de proyectos de investigación
