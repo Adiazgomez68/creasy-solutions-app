@@ -31,9 +31,25 @@ const userUpdatetHandler=async (req,res)=>{
     res.end();
 }
 
+const userLoginHandler=async (req,res)=>{
+    
+    const {email,password}=req.body
+    const response= await Users.findOne({email});
+    if(!response) return res.status(400).send('User not registered yet')
+
+    const validation =bcrypt.compareSync(password, response.password); 
+    console.log(validation);
+    if (validation){
+        return res.status(200).json({uid:response._id,name:response.name,email});
+    }else{
+        return res.status(400).json({error:"User/password incorrect"})
+    }
+}
+
 module.exports={
     userRegistertHandler,
     userUpdatetHandler,
+    userLoginHandler,
 }
 
 
