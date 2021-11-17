@@ -35,6 +35,10 @@ const userSchema=new mongoose.Schema({
     dateRegister:{
         type:Date,
         required:true
+    },
+    dateUpdate:{
+        type:Date,
+        required:false,
     }
 
 });
