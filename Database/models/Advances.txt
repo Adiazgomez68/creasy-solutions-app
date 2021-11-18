@@ -1,0 +1,5 @@
+advances {
+   id_project: {type: ObjectId},
+   progressDate: {type: String},
+   description: {type: String}, 
+}
