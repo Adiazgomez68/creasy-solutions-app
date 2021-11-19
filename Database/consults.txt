@@ -1,0 +1,15 @@
+show dbs
+ use creasysolutions
+ show collections
+
+ db.projects.insert([{nombreProyecto:'Development of a system for the teaching of the english language in Colombia',budget:10000000,generalObjective:'Create a web application for managing research projects',specificObjective:'Identify causes. Develop software using methodologies agile. Validate the functionality of the software', startDate:'24/11/2021', finishDate:'24/11/2022',state:'Inactive', projectPhase:'Null', leadership:[{identificationDocument:1234567890, name:'José Miguel Támara Ortíz'}]}])
+ db.projects.insert([{nombreProyecto:'Development of a system for the teaching of the english language in Colombia',budget:15000000,generalObjective:'Create a web application for managing research projects',specificObjective:'Identify causes. Develop software using methodologies agile. Validate the functionality of the software', startDate:'24/11/2021', finishDate:'24/11/2022',state:'Inactive', projectPhase:'Null', leadership:[{identificationDocument:1234568890, name:'Claudia Patricia Rodriguez'}]}])
+ db.projects.find().pretty()
+ db.projects.update({_id:ObjectId("6197c1e8fe4b51d9d62fc89f")},{ $set: {budget:14000000}})
+ db.projects.remove({_id: ObjectId("6197c375fe4b51d9d62fc8a0")})
+
+ db.users.insert([{names:'Maria Camila', lastname: 'Urrego Ortíz', identification:98216789, email:'camila98@gmail.com', password:'ca123456', typeUser:'Student', state: 'Pending'},{names: 'Robert', lastname:'Alvarez Cano', identification: 1004677890, email:'alvarez11@gmail.com', password: 'JR34567', typeUser: 'Leadership', state: 'Pending'}, {names: 'Andrea Karolina', lastname: 'Araujo', identification:27456900, email:'karolinaaraujo00@gmail.com', password:'12345678900', typeUser: 'Administrator', state:'authorized'}])
+ db.users.find().pretty()
+ db.users.find({_id:ObjectId("6197cd0afe4b51d9d62fc8a2")}).pretty()
+ db.users.update({names : "Robert"}, {$set: {lastname:'Buchelly Alvarez'}})
+ db.users.remove({state:'Pending'}, {justOne:true})
