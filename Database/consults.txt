@@ -13,3 +13,9 @@ show dbs
  db.users.find({_id:ObjectId("6197cd0afe4b51d9d62fc8a2")}).pretty()
  db.users.update({names : "Robert"}, {$set: {lastname:'Buchelly Alvarez'}})
  db.users.remove({state:'Pending'}, {justOne:true})
+
+ db.inscriptions.insert([{ id_project:ObjectId("6197c375fe4b51d9d62fc8a0"), id_student: ObjectId("6197cd0afe4b51d9d62fc8a2"),state:'Rejected',entryDate: '12/08/2021',egressDate: '24/10/2022'}])
+ db.inscriptions.find().pretty()
+ db.inscriptions.find({state : "Rejected"}).pretty()
+ db.inscriptions.update({_id:ObjectId("6197e2a3fe4b51d9d62fc8a5")}, { $set: {state: 'Accepted'}})
+ db.inscriptions.remove({state:'Rejected'})
