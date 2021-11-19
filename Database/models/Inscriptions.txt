@@ -1,0 +1,7 @@
+inscriptions {
+    id_project: {type: ObjectId},
+    id_student: {type: ObjectId},
+    state: {type: String},
+    entryDate: {type: String},
+    egressDate: {type: String}
+}
