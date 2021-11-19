@@ -1,0 +1,16 @@
+projects {
+    projectName: {type: String},
+    budget: {type: Number},
+    generalObjective: {type: String},
+    specificObjective: {type: String},
+    startDate: {type: String},
+    finishDate: {type: String},
+    state: {type: String},
+    projectPhase: {type: String, default: "Null"},
+    leadership: [
+        {
+            identificationDocument: {type: Number},
+            names: {type: String}
+        }
+    ]
+}
