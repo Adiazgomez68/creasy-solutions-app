@@ -19,3 +19,9 @@ show dbs
  db.inscriptions.find({state : "Rejected"}).pretty()
  db.inscriptions.update({_id:ObjectId("6197e2a3fe4b51d9d62fc8a5")}, { $set: {state: 'Accepted'}})
  db.inscriptions.remove({state:'Rejected'})
+
+ db.advances.insert({id_project:ObjectId("6197c1e8fe4b51d9d62fc89f"), progressDate:'29/12/2021', description:'Analysis Phase: Analysis of the products in the market, Elicitation of Req. Functional and Non-Functional, Req Analysis and Negotiation, Requirements Specification, Requirements Verification and Validation, Technology Research, Technology Specification / Technology Report, Architectural Specification and Verification, Coding Policies, Architectural Specification, Architectural Verification'})
+ db.advances.find().pretty()
+ db.advances.find({_id:ObjectId("619812ff5a9b2d94806d78a3")}).pretty()
+ db.advances.update({_id:ObjectId("619812ff5a9b2d94806d78a3")}, { $set:{progressDate:'02/03/2022'}})
+ db.advances.remove({id_project:ObjectId("6197c375fe4b51d9d62fc8a0")})
