@@ -1,4 +1,5 @@
 projects {
+    id_project: {type: ObjectId},
     projectName: {type: String},
     budget: {type: Number},
     generalObjective: {type: String},
@@ -9,6 +10,7 @@ projects {
     projectPhase: {type: String, default: "Null"},
     leadership: [
         {
+	    id_user: {type: ObjectId},
             identificationDocument: {type: Number},
             names: {type: String}
         }
