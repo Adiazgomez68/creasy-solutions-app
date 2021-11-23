@@ -1,5 +1,5 @@
 projects {
-    id_project: {type: ObjectId},
+    id: {type: ObjectId},
     projectName: {type: String},
     budget: {type: Number},
     generalObjective: {type: String},
