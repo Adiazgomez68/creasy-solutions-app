@@ -1,4 +1,5 @@
 inscriptions {
+    id: {type: ObjectId},
     id_project: {type: ObjectId},
     id_student: {type: ObjectId},
     state: {type: String},
