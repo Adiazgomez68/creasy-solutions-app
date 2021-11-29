@@ -2,14 +2,14 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
-//const logger = require("./core/logger");
+// const logger = require("./core/logger");
 const extensions = ({ context }) => {
     return {
         runTime: Date.now() - context.startTime,
     };
 };
 
-//app.use(logger);
+// app.use(logger);
 
 app.listen(3001, async () => {
     console.log("server is running ", 3001);
