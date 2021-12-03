@@ -13,7 +13,7 @@ app.use(logger);
 
 app.listen(3001, async () => {
     console.log("server is running ", 3001);
-    await mongoose.connect("mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+    await mongoose.connect("mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/creasysolutions?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
@@ -24,7 +24,7 @@ mongoose.connection.on(
     "error",
     console.error.bind(console, "MongoDB connection error:")
 );
-//const graphqlSchema = require();
+const graphqlSchema = require("./core/schemas/index");
 app.use(
     "/graphql",
     graphqlHTTP((request) => {
