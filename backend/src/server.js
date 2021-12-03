@@ -24,7 +24,7 @@ mongoose.connection.on(
     "error",
     console.error.bind(console, "MongoDB connection error:")
 );
-const graphqlSchema = require("./core/schemas/index");
+const graphqlSchema = require("./schemas/index");
 app.use(
     "/graphql",
     graphqlHTTP((request) => {
