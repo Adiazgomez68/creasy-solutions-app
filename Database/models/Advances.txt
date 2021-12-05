@@ -3,4 +3,5 @@ advances {
    id_project: {type: ObjectId},
    progressDate: {type: String},
    description: {type: String}, 
+   observation: {type: String},
 }

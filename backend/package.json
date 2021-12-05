@@ -1,0 +1,31 @@
+{
+  "name": "cuarta-prueba-nodejs_grapgql_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build" : "babel src -d dist --source-maps",
+    "start" : "nodemon src/schemas/index.js --exec babel-node",
+    "serve" : "node dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "express-winston": "^4.2.0",
+    "faker": "^5.5.3",
+    "graphql": "^15.7.2",
+    "graphql-compose": "^9.0.4",
+    "graphql-compose-mongoose": "^9.7.0",
+    "mongoose": "^6.0.14",
+    "winston": "^3.3.3",
+    "winston-mongodb": "^5.0.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  }
+}
