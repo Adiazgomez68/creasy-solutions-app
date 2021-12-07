@@ -12,7 +12,7 @@ const extensions = ({ context }) => {
 app.use(logger);
 
 app.listen(8080, async () => {
-    console.log("server is running ", 8080);
+    console.log("server is running", 8080);
     await mongoose.connect("mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/creasysolutions?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
