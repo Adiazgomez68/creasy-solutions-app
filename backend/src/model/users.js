@@ -16,5 +16,5 @@ const UserSchema = new Schema(
 
 module.exports = {
   UserSchema: mongoose.model("users", UserSchema),
-  UserTC: composeWithMongoose(mongoose.model("users", UserTC)),
+  UserTC: composeWithMongoose(mongoose.model("users", UserSchema)),
 };

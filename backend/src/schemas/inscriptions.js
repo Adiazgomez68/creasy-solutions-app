@@ -1,4 +1,4 @@
-const { InscriptionTC, InscriptionSchema  } = require("../model/inscription");
+const { InscriptionTC, InscriptionSchema  } = require("../model/inscriptions");
 
 InscriptionTC.addResolver({
     name: "create",

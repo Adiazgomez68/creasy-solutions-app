@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const { composeWithMongoose } = require("graphql-compose-mongoose");
-constInscriptionSchema = new Schema(
+const InscriptionSchema = new Schema(
     {
         id_project: mongoose.ObjectId,
         id_student: mongoose.ObjectId,
@@ -13,6 +13,6 @@ constInscriptionSchema = new Schema(
 );
 
 module.exports = {
-    InscriptionSchema: mongoose.model("inscription", InscriptionSchema),
-    InscriptionTC: composeWithMongoose(mongoose.model("inscription", InscriptionSchema)),
+    InscriptionSchema: mongoose.model("inscriptions", InscriptionSchema),
+    InscriptionTC: composeWithMongoose(mongoose.model("inscriptions", InscriptionSchema)),
 };
