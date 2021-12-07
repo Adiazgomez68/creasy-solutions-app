@@ -4,7 +4,7 @@
   "description": "this is the model schema users",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,8 @@
     "graphql-compose": "^9.0.4",
     "graphql-compose-mongoose": "^9.7.0",
     "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15",
+    "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"
   }
 }
