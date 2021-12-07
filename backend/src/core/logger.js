@@ -6,7 +6,7 @@ const logger = function (req, res, next) {
   expressWinston.logger({
     transports: [
       new winston.transports.MongoDB({
-        db: "mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        db: "mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/creasysolutions?retryWrites=true&w=majority",
         options: { useUnifiedTopology: true },
         metaKey: "meta",
       }),
