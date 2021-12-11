@@ -37,19 +37,19 @@ class UsersList extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.rows.map((row) => (
+                            {this.props.data.UserMany.map((user) => (
                                 <TableRow
-                                    key={row.names}
+                                    key={user.names}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {row.names}
+                                        {user.names}
                                     </TableCell>
-                                    <TableCell align="left">{row.lastnames}</TableCell>
-                                    <TableCell align="left">{row.identification}</TableCell>
-                                    <TableCell align="left">{row.email}</TableCell>
-                                    <TableCell align="left">{row.typeUser}</TableCell>
-                                    <TableCell align="left">{row.state}</TableCell>
+                                    <TableCell align="left">{user.lastnames}</TableCell>
+                                    <TableCell align="left">{user.identification}</TableCell>
+                                    <TableCell align="left">{user.email}</TableCell>
+                                    <TableCell align="left">{user.typeUser}</TableCell>
+                                    <TableCell align="left">{user.state}</TableCell>
                                     <TableCell align="left">
                                         <Tooltip title="Edit">
                                             <IconButton onClick = {() => this.props.sModalEdit()} aria-label="edit" style={{background: '#67ADFC', marginRight: '8px'}}>

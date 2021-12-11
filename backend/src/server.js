@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
@@ -10,6 +11,7 @@ const extensions = ({ context }) => {
 };
 
 app.use(logger);
+app.use(cors());
 
 app.listen(8080, async () => {
     console.log("server is running", 8080);
