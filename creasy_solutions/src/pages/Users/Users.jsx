@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import UsersList from './UsersList';
 import UsersForm from './UsersForm';
 
-import {GET_USERS} from '../../Graphql/users/queries';
+import {GET_USERS} from '../../graphql/users/queries';
 import { useQuery } from '@apollo/client';
 
 const Users = () => {
