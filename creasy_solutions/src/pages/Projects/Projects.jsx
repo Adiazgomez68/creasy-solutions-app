@@ -2,7 +2,7 @@ import * as React from 'react';
 import Header from '../../components/Header';
 import ProjectsList from './ProjectsList';
 
-import {GET_PROJECTS} from '../../Graphql/projects/queries';
+import {GET_PROJECTS} from '../../graphql/projects/queries';
 import { useQuery } from '@apollo/client';
 
 
