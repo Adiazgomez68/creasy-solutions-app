@@ -13,6 +13,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 class NotificationsList extends React.Component {
     render() {
+        //console.log(this.props.data.UserMany);
         return(
             <>
                 <TableContainer component={Paper} elevation={3}
@@ -37,22 +38,23 @@ class NotificationsList extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.rows.map((row) => (
+                        
+                            {this.props.data.inscriptionMany.map((inscription) => (
                                 <TableRow
-                                    key={row.id}
+                                    key={inscription._id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell component="th" scope="row">
-                                        {row.id}
+                                    <TableCell component="th" scope="inscription">
+                                        {inscription._id}
                                     </TableCell>
-                                    <TableCell align="left">{row.applicant}</TableCell>
-                                    <TableCell style={{width: '500px'}} align="left">{row.projectName}</TableCell>
-                                    <TableCell align="left">{row.entryDate}</TableCell>
-                                    <TableCell align="left">{row.egressDate}</TableCell>
-                                    <TableCell align="left">{row.state}</TableCell>
+                                    <TableCell align="left">{inscription.id_student}</TableCell>
+                                    <TableCell style={{width: '500px'}} align="left">{inscription.id_project}</TableCell>
+                                    <TableCell align="left">{inscription.entryDate}</TableCell>
+                                    <TableCell align="left">{inscription.egressDate}</TableCell>
+                                    <TableCell align="left">{inscription.state}</TableCell>
                                     <TableCell align="left">
                                         <Tooltip title="Edit">
-                                            <IconButton onClick = {() => this.props.sModalEdit()} aria-label="edit" style={{background: '#67ADFC', marginRight: '8px'}}>
+                                            <IconButton onClick = {() => this.props.sModalEdit(inscription._id,inscription.id_student,inscription.id_project,inscription.entryDate,inscription.egressDate,inscription.state)} aria-label="edit" style={{background: '#67ADFC', marginRight: '8px'}}>
                                                 <EditOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                                             </IconButton>
                                         </Tooltip>
