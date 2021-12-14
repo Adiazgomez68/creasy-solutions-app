@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
+import Swal from 'sweetalert2'
 import Header from '../../components/Header';
 import UsersList from './UsersList';
 import UsersForm from './UsersForm';
@@ -65,9 +66,27 @@ const Users = () => {
 
     const remove = (id) => {
 
-        succesDelete();
-        deleteUser({
-            variables: {filter: {identification: id}}
+        Swal.fire({
+            title: 'Are you sure delete this user?',
+            text: 'This user will be permanently deleted',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Deleted!',
+                'User has been deleted.',
+                'success'
+              ).then(() => {
+                    deleteUser({
+                        variables: {filter: {identification: id}}
+                    });
+                    window.location.reload(true);
+                })
+            }
         })
 
     }
