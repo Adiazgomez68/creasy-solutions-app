@@ -17,9 +17,19 @@ query getInscriptions ($filter:FilterFindManyinscriptionsInput) {
 const FIND_USER_ID = gql`
     query userfindId ($id:MongoID!) {
     UserById (_id:$id){
+      _id
       names
+      lastnames
+    }
+  }
+`
+const FIND_PROJECT_ID = gql`
+    query projectfindId ($id:MongoID!) {
+    projectById (_id:$id){
+      _id
+      projectName
     }
   }
 `
 
-export {GET_NOTIFICATIONS, FIND_USER_ID};
+export {GET_NOTIFICATIONS, FIND_USER_ID, FIND_PROJECT_ID};
