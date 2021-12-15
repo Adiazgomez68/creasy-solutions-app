@@ -10,6 +10,27 @@ export function succesCreate() {
     })
 }
 
+// -------------------------------------------------------
+
+export function succesLogin() {
+    Swal.fire({
+        title: 'Successful Login',
+        icon: 'success'
+    }).then(() => {
+        window.location.pathname = '/users';
+    })
+}
+
+export function errorLogin() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'The data does not match',
+    })
+}
+
+// -------------------------------------------------------
+
 export function succesModify() {
     Swal.fire({
         title: 'Successful Modification',
@@ -19,3 +40,6 @@ export function succesModify() {
         window.location.reload(true);
     })
 }
+
+
+

@@ -3,8 +3,8 @@ import {useState} from 'react';
 import { useMutation } from '@apollo/client';
 import { emptyForm } from '../../miscellaneous/formValidations';
 import { succesCreate } from '../../miscellaneous/operationsRes';
-import SignUpForm from './SignUpForm';
 import { CREATE_USER } from '../../graphql/users/mutations';
+import SignUpForm from './SignUpForm';
 
 import '../../styles/SignUp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
