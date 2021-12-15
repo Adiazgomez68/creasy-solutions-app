@@ -1,9 +1,9 @@
 import Swal from 'sweetalert2'
 
-export function emptyState() {
+export function emptyForm() {
     Swal.fire({
         title: 'Warning!',
-        text: "State field cannot be empty",
+        text: "Please complete all fields",
         icon: 'warning'
     })
 }

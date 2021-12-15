@@ -1,5 +1,22 @@
 import { gql } from '@apollo/client';
 
+const CREATE_USER = gql`
+    mutation createUser(
+        $record: CreateOneusersInput!
+    ) {
+        UserCreateOne(record: $record) {
+            record {
+                names,
+                lastnames,
+                identification,
+                email,
+                typeUser,
+                state
+            }
+        }
+    }
+`
+
 const UPDATE_USER = gql`
     mutation updateUser(
         $record: UpdateOneusersInput!, 
@@ -32,4 +49,4 @@ const DELETE_USER = gql`
     }
 `
 
-export {UPDATE_USER, DELETE_USER};
+export {CREATE_USER, UPDATE_USER, DELETE_USER};

@@ -4,8 +4,7 @@ import Swal from 'sweetalert2'
 import Header from '../../components/Header';
 import UsersList from './UsersList';
 import UsersForm from './UsersForm';
-import { emptyState } from '../../miscellaneous/formValidations';
-import { succesModify, succesDelete } from '../../miscellaneous/operationsRes';
+import { succesModify } from '../../miscellaneous/operationsRes';
 
 import { useQuery, useMutation } from '@apollo/client';
 import {GET_USERS} from '../../graphql/users/queries';
@@ -27,7 +26,7 @@ const Users = () => {
     const [modalEdit, setModalEdit] = useState(false); 
 
     //Methods
-
+    
     const handleChange = (e) => {
         const {name, value} = e.target;
         setForm({
@@ -65,7 +64,6 @@ const Users = () => {
     const [deleteUser] = useMutation(DELETE_USER);
 
     const remove = (id) => {
-
         Swal.fire({
             title: 'Are you sure delete this user?',
             text: 'This user will be permanently deleted',
@@ -90,7 +88,6 @@ const Users = () => {
         })
 
     }
-
 
     //Query GraphQL
 
