@@ -6,7 +6,7 @@ export function succesCreate() {
         text: 'User has been created',
         icon: 'success'
     }).then(() => {
-        window.location.reload(true);
+        window.location.pathname = '/waitingPage';
     })
 }
 
@@ -40,6 +40,5 @@ export function succesModify() {
         window.location.reload(true);
     })
 }
-
 
 

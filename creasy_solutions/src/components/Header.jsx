@@ -8,7 +8,15 @@ import Button from '@mui/material/Button';
 
 import '../styles/Header.css';
 
-export default function ButtonAppBar() {
+export default function Header() {
+
+  let token = sessionStorage.getItem('token');
+
+  const logout = () => {
+    sessionStorage.removeItem('token');
+    window.location.pathname = '/';
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar className="appBar" style={{background: 'white'}} position="fixed" elevation={0}>
@@ -19,14 +27,16 @@ export default function ButtonAppBar() {
 
           <Typography className='options'>
               <Link style={styleButton} to="/users"><Button variant="light"> Users </Button></Link>
+              <Link style={styleButton} to="/notifications"><Button variant="light" style={{width: '120px'}}> Inscriptions </Button></Link>
+              <Link style={styleButton} to="/advances"><Button variant="light" style={{width: '120px'}}> Advances </Button></Link>
               <Link style={styleButton} to="/projects"><Button variant="light"> Projects </Button></Link>
               <Link style={styleButton} to="/editProfile"><Button variant="light" style={{marginRight: '20px'}}> Profile </Button></Link>
           </Typography>
 
-          {window.location.pathname === '/' ? (
-            <Link to='/signup' style={styleButton}> <Button id="register">Sign up</Button> </Link>
+          {token !== null ? (
+            <Button id="register" onClick={logout}> Logout </Button>
           ) : (
-            <Link to='/' style={styleButton}> <Button id="register">Logout</Button> </Link>
+            <Link to='/signup' style={styleButton}> <Button id="register">Sign up</Button> </Link>
           )} 
         </Toolbar>
       </AppBar>

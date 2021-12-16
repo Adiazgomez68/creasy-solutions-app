@@ -32,7 +32,7 @@ const SignIn = () => {
 
     let { email, password } = form;
 
-    const {data, error} = useQuery(AUTHENTICATION, {
+    const {data, error} = useQuery(AUTHENTICATION,{
         variables: { filter: { email: email, password: password } }
     });
 
@@ -44,7 +44,8 @@ const SignIn = () => {
             errorLogin();
         }
         else { 
-            succesLogin();
+            sessionStorage.setItem('token', true);
+            succesLogin();       
         }
     }
 
