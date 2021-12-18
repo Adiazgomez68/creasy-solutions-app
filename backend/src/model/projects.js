@@ -11,8 +11,8 @@ const ProjectSchema = new Schema(
     specificObjective: {type: String},
     startDate: {type: String},
     finishDate: {type: String},
-    state: {type: String},
-    projectPhase: {type: String},
+    state: {type: String, default:"Inactive"},
+    projectPhase: {type: String,default:"Pending"},
     leadership: [
         {
 	        //id_user: {type: ObjectId},

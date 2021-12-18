@@ -41,4 +41,16 @@ export function succesModify() {
     })
 }
 
+// -------------------------------------------------------
+
+export function succesCreateProject() {
+    Swal.fire({
+        title: 'Successful Registration',
+        text: 'Project has been created',
+        icon: 'success'
+    }).then(() => {
+        window.location.pathname = '/projects';
+    })
+}
+// -------------------------------------------------------
 
