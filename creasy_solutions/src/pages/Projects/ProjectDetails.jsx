@@ -5,7 +5,9 @@ import {Link} from 'react-router-dom';
 import '../../styles/PDetails.css';
 
 class ProjectDetails extends React.Component {
+
     render() {
+
         return(
             <>
                 <Header/>
@@ -25,6 +27,20 @@ class ProjectDetails extends React.Component {
 
                             <label htmlFor="sDate" style={{marginTop: '2px'}}> Start date: </label> <br />
                             <input type="date" name="sDate" id="sDate"/> <br />
+                            <Link to="/advances" style={{textDecoration: 'none'}}>
+                                <Button style={{
+                                    marginTop: '20px',
+                                    color: 'white',
+                                    background: '#56B4FC',
+                                    textTransform: 'inherit',
+                                    marginLeft: '55px',
+                                    width: '190px',
+                                    height: '40px'
+                                }}> 
+                                    Go to advances 
+                                </Button>
+                            </Link>
+
                         </p>
                         <p id="c2">
                             <label htmlFor="pName"> Project name: </label> <br />

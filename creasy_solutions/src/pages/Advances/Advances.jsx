@@ -1,28 +1,55 @@
 import * as React from 'react';
 import Header from '../../components/Header';
 import AdvancesList from './AdvancesList';
+import {GET_ADVANCES} from '../../graphql/advances/queries' 
+import { useQuery } from '@apollo/client';
+import ProjectsList from '../Projects/ProjectsList';
 
-const rows = [
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'}
-];  
 
-class Advances extends React.Component {
-    render() {
+
+const Advances = () =>{
+
+    var projectId = "61ab78ee04ce1b25287fd0d9";
+
+  /*   function cambio(pId){
+        projectId = pId;
+        console.log(projectId);
+    }  */
+
+   /*  state = { projectId: "" }
+        cambio = (childData) => {
+         this.setState({projectId: childData})
+    }
+ */
+    const { loading, error, data } = useQuery(GET_ADVANCES);
+      
+      console.log(data);
+
+    if (loading) return <p> Loading... </p> 
+    const filtered = data.advancesMany.filter(( advancesMany) =>  advancesMany.id_project == projectId);
+
+    console.log(filtered);
+
+    if (error) return <p> Error... {error.message} </p>
+
+
+
         return(
+            <> 
             <div style={{marginBottom: '250px'}}>
                 <Header/>
 
+               {/*  <div style={{display: "none"}}>
+                    <ProjectsList passDataToAdvances ={this.cambio}/>
+                </div> */}
+
                 <AdvancesList
-                    rows={rows}
+                    filtered={filtered}
                 />
             </div>
+            </>
         )
-    }
+   
 }
 
 export default Advances;

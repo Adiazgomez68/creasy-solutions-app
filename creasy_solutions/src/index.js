@@ -12,7 +12,6 @@ import ProjectDetails from './pages/Projects/ProjectDetails';
 import Notifications from './pages/Notifications/Notifications';
 import Advances from './pages/Advances/Advances';
 import AdvanceDetails from './pages/Advances/AdvanceDetails';
-
 import { ApolloProvider } from '@apollo/client';
 import client from './client';
 

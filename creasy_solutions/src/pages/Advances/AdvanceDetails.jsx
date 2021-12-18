@@ -1,11 +1,26 @@
 import * as React from 'react';
+import {useState, useEffect} from "react";
 import Header from '../../components/Header';
 import Button from '@mui/material/Button';
 import {Link} from 'react-router-dom';
 import '../../styles/ADetails.css';
 
-class AdvanceDetails extends React.Component {
-    render() {
+ export default function AdvanceDetails (props) {
+
+    const adDetails = {
+        progressDate:'',
+        description: ''
+    };
+
+    const [detailsValues, setDetailsValues] = useState(adDetails);
+
+    
+    const detailsChange = e =>{
+        const {name, value} = e.target;
+        setDetailsValues({...detailsValues, [name]:value})
+        console.log(detailsValues);
+    }
+
         return(
             <>
                 <Header/>
@@ -21,17 +36,18 @@ class AdvanceDetails extends React.Component {
                                 </div>
                                 <div style={{marginLeft: '35px', width: '100%'}}>
                                     <label style={{marginLeft: '0'}} htmlFor="progress"> Progress date: </label> <br />   
-                                    <input type="date" name="progress" id="progress"/> <br />
+                                    <input type="date" name="progress" id="progress" onChange={detailsChange} value={detailsValues.progressDate}/> <br />
                                 </div>
                             </div> <br />
-
                             <label htmlFor="proName" style={{marginTop: '12px'}}> Project name: </label> <br />
                             <textarea name="proName" id="proName" rows="5"></textarea> <br />
 
                             <label htmlFor="description" style={{marginTop: '12px'}}> Description of the advance: </label> <br />
-                            <textarea name="description" id="description" rows="5"></textarea> <br />
+                            <textarea name="description" id="description" rows="5" onChange={detailsChange} value={detailsValues.description}></textarea> <br />
                         </p>
                     </fieldset>
+
+
 
                     <br /><br />
                     <div className='observation'>
@@ -44,7 +60,6 @@ class AdvanceDetails extends React.Component {
                 </form>
             </>
         )
-    }
+    
 }
 
-export default AdvanceDetails;

@@ -9,60 +9,116 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 
-class AdvancesList extends React.Component {
-    render() {
+export default function AdvancesList({filtered}){
+
         return(
-            <TableContainer component={Paper} elevation={3}
-                style={{
-                    position: 'relative', 
-                    top: '150px', 
-                    width: '91%', 
-                    marginLeft: 'auto', 
-                    marginRight: 'auto',
-                }}
-            >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell style={{fontWeight: 'bold'}}> Id </TableCell>
-                            <TableCell align="left" style={{fontWeight: 'bold'}}> Project name </TableCell>
-                            <TableCell align="left" style={{fontWeight: 'bold'}}> Progress date </TableCell>
-                            <TableCell align="left" style={{fontWeight: 'bold'}}> Actions </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.props.rows.map((row) => (
-                            <TableRow
-                                key={row.id}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {row.id}
-                                </TableCell>
-                                <TableCell align="left">{row.projectName}</TableCell>
-                                <TableCell align="left">{row.progressDate}</TableCell>
-                                <TableCell align="left">
-                                    <Link to="/advanceDetails" style={{textDecoration: 'none'}}>
-                                        <Button 
-                                        style={{
-                                            color: 'white',
-                                            background: '#07D165',
-                                            textTransform: 'capitalize',
-                                            width: '70px',
-                                            height: '34px'
-                                        }}
-                                    > 
-                                            More 
-                                        </Button>
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <div>
+                
+                <div>
+                    <TableContainer component={Paper} elevation={3}
+                    style={{
+                        position: 'relative', 
+                        top: '150px', 
+                        width: '91%', 
+                        marginLeft: 'auto', 
+                        marginRight: 'auto',
+                    }}
+                >
+                     <Link to="/advanceDetails" style={{textDecoration: 'none'}}>
+                        <Button 
+                            style={{
+                            color: 'white',
+                            background: '#56B4FC',
+                            marginTop: '10px',
+                            marginLeft: '20px',
+                            width: 'auto',
+                            height: '34px'
+                        }}
+                        > 
+                            Create a new advance
+                        </Button>
+                    </Link>
+
+                    <h1 style={{
+                            color:"black",
+                            display: "block",
+                            fontsize: "2em",
+                            margintop:'auto',
+                            marginbottom: 'auto',
+                            marginleft: 'auto',
+                            marginright: 'auto',
+                            fontweight: "bold"
+                        }}>
+                                Advances list
+                        </h1>
+                    
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell style={{fontWeight: 'bold'}}> Id </TableCell>
+                                    <TableCell align="left" style={{fontWeight: 'bold'}}> Description</TableCell>
+                                    <TableCell align="left" style={{fontWeight: 'bold'}}> Progress date </TableCell>
+                                    <TableCell align="left" style={{fontWeight: 'bold'}}> Actions </TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {filtered.map((advances) => (
+                                    <TableRow
+                                        key={advances._id}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="advances">
+                                            {advances._id}
+                                        </TableCell>
+                                        <TableCell align="left">{advances.description}</TableCell>
+                                        <TableCell align="left">{advances.progressDate}</TableCell>
+                                        <TableCell align="left">
+                                            <Link to="/advanceDetails" style={{textDecoration: 'none'}}>
+                                                <Button 
+                                                style={{
+                                                    color: 'white',
+                                                    background: '#07D165',
+                                                    textTransform: 'capitalize',
+                                                    width: '70px',
+                                                    height: '34px'
+                                                }}
+                                            > 
+                                                    More 
+                                                </Button>
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                            
+                        </Table>
+                    
+                    </TableContainer>
+
+                </div>
+              
+                <div>
+
+                    <Link to="/projectDetails" style={{textDecoration: 'none'}}>
+                        <Button style={{
+                            marginTop: '200px',
+                            color: 'white',
+                            background: '#56B4FC',
+                            textTransform: 'inherit',
+                            marginLeft: '40px',
+                            width: '190px',
+                            height: '40px'
+                        }}> 
+                            Back 
+                        </Button>
+                    </Link>
+                </div>
+                
+            </div>
+          
+            
+
         )
-    }
+    
 }
 
-export default AdvancesList;
