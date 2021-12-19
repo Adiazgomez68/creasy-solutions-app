@@ -2,29 +2,147 @@ import * as React from 'react';
 import {useState, useEffect} from "react";
 import Header from '../../components/Header';
 import Button from '@mui/material/Button';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import '../../styles/ADetails.css';
+import { useQuery, useMutation} from '@apollo/client';
+import {FIND_PROJECT} from '../../graphql/advances/queries';
+import  CREATE_ADVANCE from '../../graphql/advances/createadv-mut';
+//import UPDATE_ADV from '../../graphql/advances/updateadv-mut';
 
- export default function AdvanceDetails (props) {
+ export default function AdvanceDetails () {
 
-    const adDetails = {
-        progressDate:'',
-        description: ''
-    };
+    const [createAd] = useMutation(CREATE_ADVANCE);
+   //const [updateAd] = useMutation(UPDATE_ADV);
 
-    const [detailsValues, setDetailsValues] = useState(adDetails);
+    function SaveNew (){
+
+        console.log("in");  
+
+        createAd({variables : 
+                { record : { 
+                    id_project : detValues.projectId,
+                    progressDate : detValues.progressDate,
+                    description : detValues.description,
+                }
+            }
+        }); 
+        console.log("out");
+    }
+
+    function Update () {
+
+        /* console.log("in");  
+
+        updateAd({variables:{
+                 _id: detValues.advanceId ,
+                 record : { 
+                    id_project : detValues.projectId,
+                    progressDate : detValues.progressDate,
+                    description : detValues.description,
+                }
+            }
+        }); 
+        console.log("out");
+ */
+    }
+
+   
+    const detailsValues= {
+        progressDate: '',
+        description: '',
+        advanceId : '',
+        observation : '',
+        projectId: ''
+    }
+
+    const [detValues, setDetailsValues] = useState(detailsValues);
+    
+    
+    const {state} = useLocation();
+   
+    console.log(state);
+
+    useEffect(()=>{
+        setDetailsValues({
+            progressDate: state.progressDate,
+            description: state.description,
+            advanceId: state.advanceId,
+            observation: state.observation,
+            projectId: state.projectId
+        })
+    },[state]);
+        
+
+
+    const pId = detValues.projectId;
+   // console.log(pId);
+    
+
+    //console.log(detValues)
+
+    const { loading, error, data } = useQuery(FIND_PROJECT, {
+        variables: {_id : pId}
+    });
+    if (loading) return <p> Loading... </p> 
+ 
+    if (error) return <p> Error... {error.message} </p>
+
+           
+    // console.log(data.projectById); 
+
+    let pById = {};
+    if(data.projectById !== null && data.projectById !== undefined && data !== {}){
+    pById = data.projectById.projectName;
+    }else{
+    pById = "";
+    } 
+    
+    //console.log(pById); 
+
+
+
+ /*    if(state !== null && state !== undefined){
+        setDetailsValues({
+            progressDate: state.progressDate,
+            description: state.description,
+            advanceId : state._id,
+            observation : state.observation,
+           
+        })
+        console.log(detailsValues);
+    }else{
+       
+        console.log('no');
+    } */
+    
 
     
+   
     const detailsChange = e =>{
         const {name, value} = e.target;
-        setDetailsValues({...detailsValues, [name]:value})
-        console.log(detailsValues);
+        setDetailsValues({...detValues, [name]:value}) 
+        console.log(detValues);
     }
+
+
+
+   
+
+    const SaveObservation= () => {
+
+
+    }
+
+    
 
         return(
             <>
                 <Header/>
                 
+                {/* <div hidden={true}>
+                    <AdvancesList setDetailsValues = {setDetailsValues} />
+                </div> */}
+
                 <form className="form-details">
                     <fieldset className="field">
                         <legend id="leg1" style={{width: '130px', color: '#D10CD8'}}> Added advances </legend>
@@ -32,18 +150,18 @@ import '../../styles/ADetails.css';
                             <div id='box-items'>
                                 <div style={{width: '100%'}}>
                                     <label htmlFor="advance"> Id: </label> <br />
-                                    <input type="text" name="advance" disabled id="advance"/> <br />
+                                    <label type="text" name="advance" disabled id="advance" value={detValues.advanceId}> {detValues.advanceId} </label> <br />
                                 </div>
                                 <div style={{marginLeft: '35px', width: '100%'}}>
                                     <label style={{marginLeft: '0'}} htmlFor="progress"> Progress date: </label> <br />   
-                                    <input type="date" name="progress" id="progress" onChange={detailsChange} value={detailsValues.progressDate}/> <br />
+                                    <input type="text" name="progressDate" id="progress" placeholder ="dd/mm/aaaa"onChange={detailsChange} value={detValues.progressDate}/> <br />
                                 </div>
                             </div> <br />
                             <label htmlFor="proName" style={{marginTop: '12px'}}> Project name: </label> <br />
-                            <textarea name="proName" id="proName" rows="5"></textarea> <br />
+                            <label name="proName" id="proName" value={pById}>{pById}</label><br />
 
                             <label htmlFor="description" style={{marginTop: '12px'}}> Description of the advance: </label> <br />
-                            <textarea name="description" id="description" rows="5" onChange={detailsChange} value={detailsValues.description}></textarea> <br />
+                            <textarea name="description" id="description" rows="5" onChange={detailsChange} value={detValues.description}></textarea> <br />
                         </p>
                     </fieldset>
 
@@ -52,11 +170,43 @@ import '../../styles/ADetails.css';
                     <br /><br />
                     <div className='observation'>
                         <label htmlFor="lOb"> Leader observations: </label> <br />
-                        <textarea placeholder='Type here your observations' name="lOb" id="lOb" rows="5"></textarea> <br />
+                        <textarea placeholder='Type here your observations' name="observation" id="lOb" rows="5" onChange={detailsChange} value={detValues.observation}></textarea> <br />
                     </div>
 
                     <Link to="/advances" style={{textDecoration: 'none'}}> <Button id="btn-1"> Back </Button> </Link>
-                    <Button id="btn-2"> Save </Button>
+                    <Button id="btn-2" onClick={Update}> Update </Button>
+                    <Button style={{
+                            
+                            color: 'white',
+                            background: '#1a75ff',
+                            textTransform: 'inherit',
+                            marginLeft: '30px',
+                            fontWeight: '900',
+                            height: '40px',
+                            fontSize : '1rem',
+                            fontFamily: 'Arial'
+                        }}
+                        onClick={SaveNew}
+                        >
+                             Save New
+                        
+                         </Button>
+                         <Button style={{
+                            
+                            color: 'white',
+                            background: '#1a75ff',
+                            textTransform: 'inherit',
+                            marginLeft: '30px',
+                            fontWeight: '900',
+                            height: '40px',
+                            fontSize : '1rem',
+                            fontFamily: 'Arial'
+                        }}
+                        onClick={()=>SaveObservation()}
+                        >
+                             Save observation
+                        
+                         </Button>
                 </form>
             </>
         )

@@ -21,12 +21,12 @@ const Advances = () =>{
          this.setState({projectId: childData})
     }
  */
-    const { loading, error, data } = useQuery(GET_ADVANCES);
-      
-      console.log(data);
-
+    const { loading, error, data } = useQuery(GET_ADVANCES, {
+        variables:{filter : {id_project:projectId}}
+    });
+  
     if (loading) return <p> Loading... </p> 
-    const filtered = data.advancesMany.filter(( advancesMany) =>  advancesMany.id_project == projectId);
+    const filtered = data.advancesMany;
 
     console.log(filtered);
 
@@ -45,6 +45,7 @@ const Advances = () =>{
 
                 <AdvancesList
                     filtered={filtered}
+                    projectId={projectId}
                 />
             </div>
             </>

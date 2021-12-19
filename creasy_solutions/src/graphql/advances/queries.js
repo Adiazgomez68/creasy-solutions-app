@@ -13,13 +13,13 @@ const GET_ADVANCES = gql `
     }
 `
 
-const FIND_PROJECT_ID = gql`
-    query projectfindId ($id:MongoID!) {
-    projectById (_id:$id){
+const FIND_PROJECT = gql`
+  query projectfindId ($_id : MongoID!) {
+    projectById (_id:$_id){
       _id
       projectName
     }
   }
 `
 
-export {GET_ADVANCES, FIND_PROJECT_ID}
+export {GET_ADVANCES, FIND_PROJECT}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,12 +8,59 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import { useEffect } from 'react';
 
-export default function AdvancesList({filtered}){
+
+
+export default function AdvancesList({filtered, projectId}){
+
+    var data = {
+        projectId: '',
+        progressDate: '',
+        description: '',
+        advanceId : '',
+        observation : '',
+    }
+
+    console.log(projectId);
+
+    const Navigate = useNavigate();
+
+    const passDataValues = (advances) =>{
+
+        if (advances !== null && advances !== undefined){
+               Navigate("/advanceDetails", {state: {
+                projectId: advances.id_project,
+                progressDate: advances.progressDate,
+                description: advances.description,
+                advanceId : advances._id,
+                observation : advances.observation
+            }});
+
+        } else{
+            
+            Navigate("/advanceDetails", {state: {
+                projectId: projectId,
+                progressDate: "",
+                description: "",
+                advanceId : "",
+                observation : ""
+            }});
+        } 
+        
+    }
+    useEffect(()=>{
+        if(data.advanceId !== null && data.advanceId !== undefined){
+            console.log(data);
+        }
+        
+    },[data]);
+
 
         return(
+
             <div>
-                
+ 
                 <div>
                     <TableContainer component={Paper} elevation={3}
                     style={{
@@ -23,9 +70,8 @@ export default function AdvancesList({filtered}){
                         marginLeft: 'auto', 
                         marginRight: 'auto',
                     }}
-                >
-                     <Link to="/advanceDetails" style={{textDecoration: 'none'}}>
-                        <Button 
+                    >
+                    <Button 
                             style={{
                             color: 'white',
                             background: '#56B4FC',
@@ -34,10 +80,10 @@ export default function AdvancesList({filtered}){
                             width: 'auto',
                             height: '34px'
                         }}
+                        onClick={()=>passDataValues()}
                         > 
                             Create a new advance
-                        </Button>
-                    </Link>
+                    </Button>              
 
                     <h1 style={{
                             color:"black",
@@ -73,7 +119,7 @@ export default function AdvancesList({filtered}){
                                         <TableCell align="left">{advances.description}</TableCell>
                                         <TableCell align="left">{advances.progressDate}</TableCell>
                                         <TableCell align="left">
-                                            <Link to="/advanceDetails" style={{textDecoration: 'none'}}>
+                                           
                                                 <Button 
                                                 style={{
                                                     color: 'white',
@@ -82,21 +128,25 @@ export default function AdvancesList({filtered}){
                                                     width: '70px',
                                                     height: '34px'
                                                 }}
-                                            > 
+                                                    onClick={()=>passDataValues(advances)} 
+                                                > 
                                                     More 
                                                 </Button>
-                                            </Link>
+                                            
                                         </TableCell>
                                     </TableRow>
                                 ))}
+                                
                             </TableBody>
                             
                         </Table>
+                        
                     
                     </TableContainer>
+                    
 
                 </div>
-              
+                
                 <div>
 
                     <Link to="/projectDetails" style={{textDecoration: 'none'}}>
@@ -112,13 +162,21 @@ export default function AdvancesList({filtered}){
                             Back 
                         </Button>
                     </Link>
+                    
+                    
+
                 </div>
                 
             </div>
-          
+            
             
 
         )
     
+    /* } */
+
+
+
 }
 
+        
