@@ -8,7 +8,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import { useEffect } from 'react';
 
 
 
@@ -49,14 +48,6 @@ export default function AdvancesList({filtered, projectId}){
         } 
         
     }
-    useEffect(()=>{
-        if(data.advanceId !== null && data.advanceId !== undefined){
-            console.log(data);
-        }
-        
-    },[data]);
-
-
         return(
 
             <div>
@@ -71,19 +62,7 @@ export default function AdvancesList({filtered, projectId}){
                         marginRight: 'auto',
                     }}
                     >
-                    <Button 
-                            style={{
-                            color: 'white',
-                            background: '#56B4FC',
-                            marginTop: '10px',
-                            marginLeft: '20px',
-                            width: 'auto',
-                            height: '34px'
-                        }}
-                        onClick={()=>passDataValues()}
-                        > 
-                            Create a new advance
-                    </Button>              
+                            
 
                     <h1 style={{
                             color:"black",
@@ -153,7 +132,7 @@ export default function AdvancesList({filtered, projectId}){
                         <Button style={{
                             marginTop: '200px',
                             color: 'white',
-                            background: '#56B4FC',
+                            background: '#1a75ff',
                             textTransform: 'inherit',
                             marginLeft: '40px',
                             width: '190px',
@@ -162,7 +141,20 @@ export default function AdvancesList({filtered, projectId}){
                             Back 
                         </Button>
                     </Link>
-                    
+                    <Button 
+                            style={{
+                            color: 'white',
+                            background: 'green',
+                            textTransform: 'inherit',
+                            marginTop: '200px',
+                            marginLeft: '20px',
+                            width: 'auto',
+                            height: '40px'
+                        }}
+                        onClick={()=>passDataValues()}
+                        > 
+                            Create a new advance
+                    </Button>     
                     
 
                 </div>

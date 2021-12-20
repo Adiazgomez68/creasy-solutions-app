@@ -2,14 +2,31 @@ import * as React from 'react';
 import Header from '../../components/Header';
 import AdvancesList from './AdvancesList';
 import {GET_ADVANCES} from '../../graphql/advances/queries' 
-import { useQuery } from '@apollo/client';
+import { useQuery, useLazyQuery } from '@apollo/client';
 import ProjectsList from '../Projects/ProjectsList';
+import { useEffect, useState} from 'react';
 
 
 
 const Advances = () =>{
-
+    
     var projectId = "61ab78ee04ce1b25287fd0d9";
+
+
+    const { loading, error, data } = useQuery(GET_ADVANCES, {
+        variables:{filter : {id_project:projectId}}
+    });
+  
+    if (loading) return <p> Loading... </p> 
+
+
+    if (error) return <p> Error... {error.message} </p>
+
+    const filtered = data.advancesMany;
+    
+    console.log(filtered);
+
+
 
   /*   function cambio(pId){
         projectId = pId;
@@ -21,18 +38,10 @@ const Advances = () =>{
          this.setState({projectId: childData})
     }
  */
-    const { loading, error, data } = useQuery(GET_ADVANCES, {
-        variables:{filter : {id_project:projectId}}
-    });
+    
+
+    
   
-    if (loading) return <p> Loading... </p> 
-    const filtered = data.advancesMany;
-
-    console.log(filtered);
-
-    if (error) return <p> Error... {error.message} </p>
-
-
 
         return(
             <> 

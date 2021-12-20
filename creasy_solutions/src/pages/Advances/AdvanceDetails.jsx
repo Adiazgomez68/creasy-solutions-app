@@ -2,51 +2,15 @@ import * as React from 'react';
 import {useState, useEffect} from "react";
 import Header from '../../components/Header';
 import Button from '@mui/material/Button';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
 import '../../styles/ADetails.css';
 import { useQuery, useMutation} from '@apollo/client';
-import {FIND_PROJECT} from '../../graphql/advances/queries';
+import {FIND_PROJECT,GET_ADVANCES} from '../../graphql/advances/queries';
 import  CREATE_ADVANCE from '../../graphql/advances/createadv-mut';
-//import UPDATE_ADV from '../../graphql/advances/updateadv-mut';
+import UPDATE_ADV from '../../graphql/advances/updateadv-mut';
 
  export default function AdvanceDetails () {
 
-    const [createAd] = useMutation(CREATE_ADVANCE);
-   //const [updateAd] = useMutation(UPDATE_ADV);
-
-    function SaveNew (){
-
-        console.log("in");  
-
-        createAd({variables : 
-                { record : { 
-                    id_project : detValues.projectId,
-                    progressDate : detValues.progressDate,
-                    description : detValues.description,
-                }
-            }
-        }); 
-        console.log("out");
-    }
-
-    function Update () {
-
-        /* console.log("in");  
-
-        updateAd({variables:{
-                 _id: detValues.advanceId ,
-                 record : { 
-                    id_project : detValues.projectId,
-                    progressDate : detValues.progressDate,
-                    description : detValues.description,
-                }
-            }
-        }); 
-        console.log("out");
- */
-    }
-
-   
     const detailsValues= {
         progressDate: '',
         description: '',
@@ -55,12 +19,60 @@ import  CREATE_ADVANCE from '../../graphql/advances/createadv-mut';
         projectId: ''
     }
 
-    const [detValues, setDetailsValues] = useState(detailsValues);
-    
-    
+
+    const Navigate = useNavigate();
     const {state} = useLocation();
-   
+    const [detValues, setDetailsValues] = useState(detailsValues);
     console.log(state);
+    const [createAd] = useMutation(CREATE_ADVANCE, {
+        refetchQueries: [ GET_ADVANCES,  
+             'advancesUpdateById' 
+             ],});
+
+    const [updateAd] = useMutation(UPDATE_ADV, {
+        refetchQueries: [ GET_ADVANCES,  
+             'advancesUpdateById' 
+             ],});
+
+    function SaveNew (){
+        createAd({variables : 
+                { record : { 
+                    id_project : detValues.projectId,
+                    progressDate : detValues.progressDate,
+                    description : detValues.description,
+                }
+            }
+        }); 
+        Navigate("/advances")
+    }
+
+    function Update () {
+        updateAd({variables:{
+                 _id: detValues.advanceId ,
+                 record : { 
+                    progressDate : detValues.progressDate,
+                    description : detValues.description,
+                }
+            }
+        }); 
+        Navigate("/advances")
+ 
+    }
+
+    function SaveObservation() {
+        updateAd({variables:{
+                 _id: detValues.advanceId ,
+                 record : { 
+                    observation : detValues.observation,
+                }
+            }
+        }); 
+        Navigate("/advances")
+
+    }
+
+   
+
 
     useEffect(()=>{
         setDetailsValues({
@@ -97,43 +109,12 @@ import  CREATE_ADVANCE from '../../graphql/advances/createadv-mut';
     pById = "";
     } 
     
-    //console.log(pById); 
-
-
-
- /*    if(state !== null && state !== undefined){
-        setDetailsValues({
-            progressDate: state.progressDate,
-            description: state.description,
-            advanceId : state._id,
-            observation : state.observation,
-           
-        })
-        console.log(detailsValues);
-    }else{
-       
-        console.log('no');
-    } */
-    
-
-    
    
     const detailsChange = e =>{
         const {name, value} = e.target;
         setDetailsValues({...detValues, [name]:value}) 
         console.log(detValues);
-    }
-
-
-
-   
-
-    const SaveObservation= () => {
-
-
-    }
-
-    
+    }  
 
         return(
             <>
