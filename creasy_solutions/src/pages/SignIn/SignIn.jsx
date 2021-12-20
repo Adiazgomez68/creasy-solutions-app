@@ -45,6 +45,8 @@ const SignIn = () => {
         }
         else { 
             sessionStorage.setItem('token', true);
+            sessionStorage.setItem('typeUser', data.UserOne.typeUser);
+            sessionStorage.setItem('id', data.UserOne._id); 
             succesLogin();       
         }
     }

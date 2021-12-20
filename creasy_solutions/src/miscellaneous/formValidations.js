@@ -7,3 +7,11 @@ export function emptyForm() {
         icon: 'warning'
     })
 }
+
+export function changeProfile() {
+    Swal.fire({
+        title: 'Warning!',
+        text: "You must make changes to saves",
+        icon: 'warning'
+    })
+}

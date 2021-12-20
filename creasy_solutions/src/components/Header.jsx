@@ -11,9 +11,11 @@ import '../styles/Header.css';
 export default function Header() {
 
   let token = sessionStorage.getItem('token');
+  let typeUser = sessionStorage.getItem('typeUser');
 
   const logout = () => {
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('typeUser');
     window.location.pathname = '/';
   }
 
@@ -26,11 +28,28 @@ export default function Header() {
           </Typography>
 
           <Typography className='options'>
-              <Link style={styleButton} to="/users"><Button variant="light"> Users </Button></Link>
-              <Link style={styleButton} to="/notifications"><Button variant="light" style={{width: '120px'}}> Inscriptions </Button></Link>
-              <Link style={styleButton} to="/advances"><Button variant="light" style={{width: '120px'}}> Advances </Button></Link>
-              <Link style={styleButton} to="/projects"><Button variant="light"> Projects </Button></Link>
-              <Link style={styleButton} to="/editProfile"><Button variant="light" style={{marginRight: '20px'}}> Profile </Button></Link>
+            {typeUser === 'Administrator' ? (
+              <div>
+                <Link style={styleButton} to="/users"><Button variant="light"> Users </Button></Link>
+                <Link style={styleButton} to="/projects"><Button variant="light" style={{marginRight: '20px'}}> Projects </Button></Link>
+              </div>
+            ) : typeUser === 'Leader' ? (
+              <div>
+                <Link style={styleButton} to="/users"><Button variant="light"> Users </Button></Link>
+                <Link style={styleButton} to="/projects"><Button variant="light"> Projects </Button></Link>
+                <Link style={styleButton} to="/notifications"><Button variant="light" style={{width: '120px'}}> Inscriptions </Button></Link>
+                <Link style={styleButton} to="/advances"><Button variant="light" style={{width: '120px'}}> Advances </Button></Link>
+                <Link style={styleButton} to="/editProfile"><Button variant="light" style={{marginRight: '20px'}}> Profile </Button></Link>
+              </div>
+            ) : typeUser === 'Student' ? (
+              <div>
+                <Link style={styleButton} to="/projects"><Button variant="light"> Projects </Button></Link>
+                <Link style={styleButton} to="/advances"><Button variant="light" style={{width: '120px'}}> Advances </Button></Link>
+                <Link style={styleButton} to="/editProfile"><Button variant="light" style={{marginRight: '20px'}}> Profile </Button></Link>
+              </div>
+            ) : (
+              null
+            )}
           </Typography>
 
           {token !== null ? (
