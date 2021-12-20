@@ -27,7 +27,7 @@ class ProjectDetails extends React.Component {
 
                             <label htmlFor="sDate" style={{marginTop: '2px'}}> Start date: </label> <br />
                             <input type="date" name="sDate" id="sDate"/> <br />
-                            <Link to="/advances" style={{textDecoration: 'none'}}>
+                            <Link to="/advances" state={{ pId: "61ab78ee04ce1b25287fd0d9" /* reemplazar el string quemado por el atributo que contenga la id del proyecto*/ }}  style={{textDecoration: 'none'}}>
                                 <Button style={{
                                     marginTop: '20px',
                                     color: 'white',
