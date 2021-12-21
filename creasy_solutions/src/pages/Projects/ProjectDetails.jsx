@@ -88,7 +88,24 @@ const ProjectDetails = () => {
                             <textarea name="generalObjective" id="general" rows="5" onChange={handleChange}value={form.generalObjective} ></textarea>  <br />
 
                             <label htmlFor="sDate" style={{marginTop: '2px'}}> Start date: </label> <br />
-                            <input type="date" name="startDate" id="sDate" onChange={handleChange}value={form.startDate}/> <br />
+
+                            <input type="date" name="sDate" id="sDate"/> <br />
+                            <Link to="/advances" state={{ pId: "61ab78ee04ce1b25287fd0d9" /* reemplazar el string quemado por el atributo que contenga la id del proyecto*/ }}  style={{textDecoration: 'none'}}>
+                                <Button style={{
+                                    marginTop: '20px',
+                                    color: 'white',
+                                    background: '#56B4FC',
+                                    textTransform: 'inherit',
+                                    marginLeft: '55px',
+                                    width: '190px',
+                                    height: '40px'
+                                }}> 
+                                    Go to advances 
+                                </Button>
+                            </Link>
+
+                            //<input type="date" name="startDate" id="sDate" onChange={handleChange}value={form.startDate}/> <br />
+
                         </p>
                         <p id="c2">
                             <label htmlFor="pName"> Project name: </label> <br />

@@ -1,28 +1,41 @@
 import * as React from 'react';
 import Header from '../../components/Header';
 import AdvancesList from './AdvancesList';
+import { GET_ADVANCES } from '../../graphql/advances/queries'
+import { useQuery } from '@apollo/client';
+import { useLocation } from "react-router-dom";
 
-const rows = [
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'},
-    {id: '1c4kfr6jdt649rvm49g5ty1', projectName: 'Development of a system for the teaching of the english language in Colombia', progressDate: '2021-11-25'}
-];  
+const Advances = () => {
 
-class Advances extends React.Component {
-    render() {
-        return(
-            <div style={{marginBottom: '250px'}}>
-                <Header/>
+
+    const location = useLocation();
+
+    const projectId = location.state.pId;
+
+    const { loading, error, data } = useQuery(GET_ADVANCES, {
+        variables: { filter: { id_project: projectId } }
+    });
+
+    if (loading) return <p> Loading... </p>
+
+
+    if (error) return <p> Error... {error.message} </p>
+
+    const filtered = data.advancesMany;
+
+    return (
+        <>
+            <div style={{ marginBottom: '250px' }}>
+                <Header />
 
                 <AdvancesList
-                    rows={rows}
+                    filtered={filtered}
+                    projectId={projectId}
                 />
             </div>
-        )
-    }
+        </>
+    )
+
 }
 
 export default Advances;
