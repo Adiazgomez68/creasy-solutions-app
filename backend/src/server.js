@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
@@ -10,9 +11,10 @@ const extensions = ({ context }) => {
 };
 
 app.use(logger);
+app.use(cors());
 
-app.listen(8080, async () => {
-    console.log("server is running", 8080);
+app.listen(3001, async () => {
+    console.log("server is running", 3001);
     await mongoose.connect("mongodb+srv://dbAdmin:XUyGDe3eYReTncxB@clustexforce.b2hgz.mongodb.net/creasysolutions?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
