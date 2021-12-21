@@ -10,7 +10,7 @@ const UserSchema = new Schema(
     email: {type: String},
     password: {type: String},
     typeUser: {type: String},
-    state: {type: String}
+    state: {type: String, default: "Pending"}
   },
 );
 

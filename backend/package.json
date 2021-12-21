@@ -1,37 +1,25 @@
 {
-  "name": "backend_user",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "this is the model schema users",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon src/server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Adiazgomez68/proyecto-mintic-ciclo4.git"
-  },
-  "keywords": [
-    "backend",
-    "graphql",
-    "mongoose"
-  ],
-  "author": "luis cruz",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Adiazgomez68/proyecto-mintic-ciclo4/issues"
-  },
-  "homepage": "https://github.com/Adiazgomez68/proyecto-mintic-ciclo4#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
-    "express-winston": "^4.2.0",
-    "graphql": "^16.0.1",
-    "graphql-compose": "^9.0.4",
-    "graphql-compose-mongoose": "^9.7.0",
-    "mongoose": "^6.0.14",
+    "express-winston": "^4.0.5",
+    "graphql": "^14.7.0",
+    "graphql-compose": "^7.22.1",
+    "graphql-compose-mongoose": "^9.0.0",
+    "mongoose": "^5.10.9",
     "nodemon": "^2.0.15",
     "winston": "^3.3.3",
-    "winston-mongodb": "^5.0.7"
+    "winston-mongodb": "^5.0.5"
   }
 }
