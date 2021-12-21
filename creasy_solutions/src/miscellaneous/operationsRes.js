@@ -6,7 +6,7 @@ export function succesCreate() {
         text: 'User has been created',
         icon: 'success'
     }).then(() => {
-        window.location.reload(true);
+        window.location.pathname = '/waitingPage';
     })
 }
 
@@ -41,5 +41,16 @@ export function succesModify() {
     })
 }
 
+// -------------------------------------------------------
 
+export function succesCreateProject() {
+    Swal.fire({
+        title: 'Successful Registration',
+        text: 'Project has been created',
+        icon: 'success'
+    }).then(() => {
+        window.location.pathname = '/projects';
+    })
+}
+// -------------------------------------------------------
 

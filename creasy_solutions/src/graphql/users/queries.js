@@ -13,14 +13,28 @@ const GET_USERS = gql`
     }
 `
 
-const AUTHENTICATION = gql`
-    query Auth($filter: FilterFindOneusersInput) {
+const GET_USER = gql`
+    query getUser($filter: FilterFindOneusersInput) {
         UserOne(filter: $filter) {
-            email,
-            password,
-            state
+            _id,
+            names,
+            lastnames,
+            identification,
+            email, 
+            password
         }
     }
 `
 
-export {GET_USERS, AUTHENTICATION};
+const AUTHENTICATION = gql`
+    query Auth($filter: FilterFindOneusersInput) {
+        UserOne(filter: $filter) {
+            _id
+            email,
+            password,
+            typeUser
+        }
+    }
+`
+
+export {GET_USERS, GET_USER, AUTHENTICATION};
