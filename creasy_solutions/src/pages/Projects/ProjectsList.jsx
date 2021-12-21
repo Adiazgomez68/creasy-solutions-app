@@ -46,16 +46,16 @@ class ProjectsList extends React.Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {this.props.rows.map((row) => (
+                            {this.props.data.projectMany.map((project) => (
                                 <TableRow
-                                    key={row.id}
+                                    key={project._id}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {row.id}
+                                        {project._id}
                                     </TableCell>
-                                    <TableCell align="left">{row.projectName}</TableCell>
-                                    <TableCell align="left">{row.state}</TableCell>
+                                    <TableCell align="left">{project.projectName}</TableCell>
+                                    <TableCell align="left">{project.state}</TableCell>
                                     <TableCell align="left">
                                        <Link to="/projectDetails" style={{textDecoration: 'none'}}>
                                            <Button 
@@ -66,6 +66,7 @@ class ProjectsList extends React.Component {
                                                 width: '70px',
                                                 height: '34px'
                                             }}
+                                        
                                         > 
                                                 More 
                                             </Button>
