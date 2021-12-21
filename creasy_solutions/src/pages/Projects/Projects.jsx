@@ -2,23 +2,16 @@ import * as React from 'react';
 import {useState} from 'react';
 import Header from '../../components/Header';
 import ProjectsList from './ProjectsList';
-
-
 import { succesModify } from '../../miscellaneous/operationsRes';
 
 import {GET_PROJECTS} from '../../graphql/projects/queries'
 import { useQuery, useMutation} from '@apollo/client';
 import { UPDATE_PROJECT, CREATE_PROJECT } from '../../graphql/projects/mutations';
 
-
-
 const Projects = () => { 
 
 
    //State
-    
-    
-
 
  //Methods
     
@@ -70,14 +63,9 @@ const Projects = () => {
 
                 
             </div>
+
         </>
     )
 }
-
-
-
-
-   
-
 
 export default Projects;
