@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/client';
 import { emptyForm } from '../../miscellaneous/formValidations';
 import { succesCreate } from '../../miscellaneous/operationsRes';
 import { CREATE_USER } from '../../graphql/users/mutations';
-import {CREATE_PROJECT} from '../../graphql/projects/mutations';
 import SignUpForm from './SignUpForm';
 
 import '../../styles/SignUp.css';
@@ -64,6 +63,15 @@ const SignUp = () => {
 
     }
     
+    return (
+        <>
+            <SignUpForm
+                save={save}
+                form={form}
+                handleChange={handleChange}
+            />
+        </>
+    )
 }
 
 export default SignUp;
