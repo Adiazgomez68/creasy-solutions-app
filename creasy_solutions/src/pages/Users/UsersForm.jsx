@@ -21,27 +21,27 @@ class UsersForm extends React.Component {
                     <ModalBody>
                         <FormGroup>
                             <label>Names:</label>
-                            <input className="form-control" name="names" readOnly type="text" onChange={this.props.handleChange} value={this.props.data.names} />
+                            <input className="form-control" name="names" readOnly type="text" value={this.props.form.names} />
                         </FormGroup>
                         <FormGroup style={{marginTop: '-12px'}}>
                             <label>Lastnames:</label>
-                            <input className="form-control" readOnly name="lastnames" type="text" onChange={this.props.handleChange} value={this.props.data.lastnames} />
+                            <input className="form-control" readOnly name="lastnames" type="text" value={this.props.form.lastnames} />
                         </FormGroup>
                         <FormGroup style={{marginTop: '-12px'}}>
                             <label>Identification:</label>
-                            <input className="form-control" readOnly name="identification" type="text" onChange={this.props.handleChange} value={this.props.data.identification} />
+                            <input className="form-control" readOnly name="identification" type="number" value={this.props.form.identification} />
                         </FormGroup>
                         <FormGroup style={{marginTop: '-12px'}}>
                             <label>E-mail:</label>
-                            <input className="form-control" readOnly name="email" type="text" onChange={this.props.handleChange} value={this.props.data.email} />
+                            <input className="form-control" readOnly name="email" type="text" value={this.props.form.email} />
                         </FormGroup>
                         <FormGroup style={{marginTop: '-12px'}}>
                             <label>Type User:</label>
-                            <input className="form-control" readOnly name="typeUser" type="text" onChange={this.props.handleChange} value={this.props.data.typeUser} />
+                            <input className="form-control" readOnly name="typeUser" type="text" value={this.props.form.typeUser} />
                         </FormGroup>
                         <FormGroup style={{marginTop: '-12px'}}>
                             <label> State: </label>
-                            <select className="form-control" name="state" onChange={this.props.handleChange} value={this.props.data.state}>
+                            <select className="form-control" name="state" onChange={this.props.handleChange}>
                                 <option value="" selected disabled hide style={{ display: 'none' }}> Select type user </option>
                                 <option value="Pending"> Pending </option>
                                 <option value="Authorized"> Authorized </option>
@@ -50,8 +50,8 @@ class UsersForm extends React.Component {
                         </FormGroup>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="success" > Modify </Button>
-                        <Button color="danger" onClick={() => this.props.hModalEdit()}> Cancel </Button>
+                        <Button color="success" onClick={() => this.props.modify(this.props.form)}> Modify </Button>
+                        <Button color="danger" onClick={() => this.props.hideME()}> Cancel </Button>
                     </ModalFooter>
                 </Modal>
             </>

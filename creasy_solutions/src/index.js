@@ -12,6 +12,7 @@ import ProjectDetails from './pages/Projects/ProjectDetails';
 import Notifications from './pages/Notifications/Notifications';
 import Advances from './pages/Advances/Advances';
 import AdvanceDetails from './pages/Advances/AdvanceDetails';
+import WaitingPage from './components/WaitingPage';
 
 import { ApolloProvider } from '@apollo/client';
 import client from './client';
@@ -31,6 +32,7 @@ ReactDOM.render(
           <Route exact path="/notifications" element={<Notifications/>}/>
           <Route exact path="/advances" element={<Advances/>}/>
           <Route exact path="/advanceDetails" element={<AdvanceDetails/>}/>
+          <Route exact path="/waitingPage" element={<WaitingPage/>}/>
         </Routes>
       </Router>
     </ApolloProvider>

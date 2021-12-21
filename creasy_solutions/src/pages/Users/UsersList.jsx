@@ -52,12 +52,12 @@ class UsersList extends React.Component {
                                     <TableCell align="left">{user.state}</TableCell>
                                     <TableCell align="left">
                                         <Tooltip title="Edit">
-                                            <IconButton onClick = {() => this.props.sModalEdit()} aria-label="edit" style={{background: '#67ADFC', marginRight: '8px'}}>
+                                            <IconButton onClick = {() => this.props.showME(user)} aria-label="edit" style={{background: '#67ADFC', marginRight: '8px'}}>
                                                 <EditOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                                             </IconButton>
                                         </Tooltip>
                                         <Tooltip title="Delete">
-                                            <IconButton aria-label="delete" style={{background: '#FC6767'}}>
+                                            <IconButton aria-label="delete" onClick={() => this.props.remove(user.identification)} style={{background: '#FC6767'}}>
                                                 <DeleteOutlinedIcon fontSize='small' style={{color: 'white'}}/>
                                             </IconButton>
                                         </Tooltip>

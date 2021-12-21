@@ -49,7 +49,7 @@ class SignInForm extends React.Component {
                                 </Form.Label>
                                 <InputGroup className="mb-2">
                                     <InputGroup.Text id='icon'> <EmailOutlinedIcon color="action"/> </InputGroup.Text>
-                                    <FormControl id="inlineFormInputGroup" type="email" autoComplete="off" placeholder="E-mail" />
+                                    <FormControl id="inlineFormInputGroup" type="text" name='email' autoComplete="off" placeholder="E-mail" onChange={this.props.handleChange}/>
                                 </InputGroup>
                             </Form.Group>
 
@@ -59,12 +59,12 @@ class SignInForm extends React.Component {
                                 </Form.Label>
                                 <InputGroup className="mb-2">
                                     <InputGroup.Text id='icon'> <LockOutlinedIcon color="action"/> </InputGroup.Text>
-                                    <FormControl id="inlineFormInputGroup" type="password" placeholder="Password" />
+                                    <FormControl id="inlineFormInputGroup" type="password" name='password' placeholder="Password" onChange={this.props.handleChange}/>
                                 </InputGroup>
                             </Form.Group>
                         </Form>
 
-                        <Button id="btn-in" > Sign in </Button>
+                        <Button id="btn-in" onClick={() => this.props.login()}> Sign in </Button>
                     </div>
                 </div>
             </>

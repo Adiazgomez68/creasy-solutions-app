@@ -66,6 +66,7 @@ class ProjectsList extends React.Component {
                                                 width: '70px',
                                                 height: '34px'
                                             }}
+                                        
                                         > 
                                                 More 
                                             </Button>
